@@ -1,11 +1,11 @@
 const carousel = document.querySelector("[data-target='carousel']");
 const card = carousel.querySelector("[data-target='card']");
-const leftButton = document.querySelector("[data-target='slideLeft']");
-const rightButton = document.querySelector("[data-target='slideRight']");
+const leftButton = document.querySelector("[data-action='slideLeft']");
+const rightButton = document.querySelector("[data-action='slideRight']");
 
-const carouselWidth = carousel.offSetWidth;
-const cardStyle = card.currentStyle || window.getComputedStyle(card);
-const cardMarginRight = Number(cardStyle.MarginRight.match(/\d+/g)[0]);
+const carouselWidth = carousel.offsetWidth;
+const cardStyle = card.currentStyle || window.getComputedStyle(card)
+const cardMarginRight = Number(cardStyle.marginRight.match(/\d+/g)[0]);
 
 const cardCount = carousel.querySelectorAll("[data-target='card']").length;
 
@@ -22,6 +22,6 @@ leftButton.addEventListener('click', function() {
 rightButton.addEventListener('click', function() {
     if (offset !== maxX) {
         offset -= carouselWidth + cardMarginRight;
-        carousel.style.transform = `translateX${offset}`
+        carousel.style.transform = `translateX(${offset}px)`;
     }
 });
