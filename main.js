@@ -9,21 +9,19 @@ const cardMarginRight = Number(cardStyle.MarginRight.match(/\d+/g)[0]);
 
 const cardCount = carousel.querySelectorAll("[data-target='card']").length;
 
-let offSet = 0;
-const maxX = -((cardCount / 3) * carouselWidth +
-                (cardMarginRight * (cardCount / 3)) - 
-                carouselWidth - cardMarginRight);
+let offset = 0;
+const maxX = -((cardCount / 3) * carouselWidth + (cardMarginRight * (cardCount / 3)) - carouselWidth - cardMarginRight);
 
 leftButton.addEventListener('click', function() {
-    if (offSet !== 0) {
-        offSet += carouselWidth + cardMarginRight;
-        carousel.style.transform = `translateX(${offSet}px)`;
+    if (offset !== 0) {
+        offset += carouselWidth + cardMarginRight;
+        carousel.style.transform = `translateX(${offset}px)`;
     }
 });
 
 rightButton.addEventListener('click', function() {
-    if (offSet !== maxX) {
-        offSet -= carouselWidth + cardMarginRight;
-        carousel.style.transform = `translateX${offSet}`
+    if (offset !== maxX) {
+        offset -= carouselWidth + cardMarginRight;
+        carousel.style.transform = `translateX${offset}`
     }
 });
